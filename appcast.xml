@@ -7,7 +7,7 @@
     <language>de</language>
     <item>
       <title>2.1</title>
-      <pubDate>Wed, 02 Sep 2026 07:41:48 +1000</pubDate>
+      <pubDate>Wed, 02 Sep 2026 16:13:11 +1000</pubDate>
       <sparkle:version>1</sparkle:version>
       <sparkle:shortVersionString>2.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
@@ -27,7 +27,7 @@ macOS will refuse to open it once — Leise is signed but not notarised. Go to *
                  sparkle:version="1"
                  sparkle:shortVersionString="2.1"
                  type="application/octet-stream"
-                 sparkle:edSignature="Ei7JuJQH/gepkE2gbpgBQ0DGVpwNxzUCcjlDAfx69uh/+c7V3hu58tvKh0QEcxH33c9JYI9rM5InTdo1Lvw+Dg==" length="135643419" />
+                 sparkle:edSignature="yO0Ue+PYZz8hQM7SLfVD3MJEk2+iXpiJO02YOiY3L0CFwv+g7pZBJ82YGYAq+AsW6gXLau/XSBVDSmtLar98AQ==" length="135650682" />
     </item>
   </channel>
 </rss>
