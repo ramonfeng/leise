@@ -8,12 +8,12 @@
 
 - **Apple Silicon only** — a Mac with an M1 chip or newer. Intel Macs are not supported.
 - **macOS 14.4 or later.**
-- **About 7 GB of free disk space** — 409 MB for the app, 5.9 GB for the speech models it downloads on first run.
+- **About 7 GB of free disk space** — 523 MB for the app, 5.9 GB for the speech models it downloads on first run.
 - **Ten minutes**, most of it waiting for that download.
 
 ### 1. Install
 
-1. Download `Leise-2.1.zip` from https://github.com/ramonfeng/leise/releases/latest.
+1. Download `Leise-<version>.zip` from https://github.com/ramonfeng/leise/releases/latest.
 2. Double-click the zip to unpack it.
 3. **Drag `Leise.app` into your Applications folder in Finder.** Do this by dragging — macOS runs a copied-in app from a temporary read-only location instead, and it will not work properly from there.
 
@@ -52,9 +52,22 @@ Leise asks once whether it may check for new versions. **The box is unchecked, a
 
 Nothing about you, ever. Audio and transcripts stay on the machine. There are exactly two requests the app can make, both named above and both under your control: downloading the speech models on first run, and checking for a new version if you opted in — which asks for a version number and sends nothing about you or your Mac.
 
+### Build it yourself
+
+Everything needed to rebuild this exact binary is in `leise-<version>-source.tar.gz` on the same
+release. Unpack it and run:
+
+```bash
+engine/scripts/bootstrap-venv.sh
+make install-shell
+```
+
+Apple Silicon, macOS 14.4+, Xcode 16+. No Apple Developer account needed — the build signs ad-hoc.
+Full instructions, including how to package a release, are in `BUILDING.md`.
+
 ### Licence
 
-GPL-3.0. The complete corresponding source for this build is in the same release, as `leise-2.1-source.tar.gz` — the exact commit the download was built from.
+GPL-3.0. The complete corresponding source for this build is in the same release, as `leise-<version>-source.tar.gz` — the exact commit the download was built from.
 
 ---
 
@@ -66,12 +79,12 @@ GPL-3.0. The complete corresponding source for this build is in the same release
 
 - **Nur Apple Silicon** — ein Mac mit M1 oder neuer. Intel-Macs werden nicht unterstützt.
 - **macOS 14.4 oder neuer.**
-- **Rund 7 GB freier Speicherplatz** — 409 MB für die App, 5,9 GB für die Sprachmodelle beim ersten Start.
+- **Rund 7 GB freier Speicherplatz** — 523 MB für die App, 5,9 GB für die Sprachmodelle beim ersten Start.
 - **Zehn Minuten**, größtenteils Wartezeit für diesen Download.
 
 ### 1. Installation
 
-1. `Leise-2.1.zip` von https://github.com/ramonfeng/leise/releases/latest laden.
+1. `Leise-<version>.zip` von https://github.com/ramonfeng/leise/releases/latest laden.
 2. Zum Entpacken doppelklicken.
 3. **`Leise.app` im Finder in den Ordner „Programme" ziehen.** Bitte wirklich ziehen — eine anders hineinkopierte App startet macOS aus einem temporären, schreibgeschützten Ort, und von dort funktioniert sie nicht richtig.
 
@@ -110,9 +123,22 @@ Leise fragt einmal, ob sie nach neuen Versionen sehen darf. **Das Häkchen ist n
 
 Nichts über dich. Aufnahmen und Transkripte bleiben auf dem Gerät. Es gibt genau zwei Anfragen, beide oben genannt und beide von dir gesteuert: das Laden der Sprachmodelle beim ersten Start und, nach ausdrücklicher Zustimmung, die Prüfung auf eine neue Version — dabei wird eine Versionsnummer abgefragt und nichts über dich oder deinen Mac gesendet.
 
+### Selbst bauen
+
+Alles, was zum Neubau genau dieses Binaries nötig ist, liegt als `leise-<version>-source.tar.gz` im
+selben Release. Entpacken und ausführen:
+
+```bash
+engine/scripts/bootstrap-venv.sh
+make install-shell
+```
+
+Apple Silicon, macOS 14.4+, Xcode 16+. Kein Apple-Developer-Konto nötig — der Build signiert ad-hoc.
+Die vollständige Anleitung, auch zum Paketieren eines Releases, steht in `BUILDING.md`.
+
 ### Lizenz
 
-GPL-3.0. Der vollständige zugehörige Quelltext liegt im selben Release als `leise-2.1-source.tar.gz` — genau der Commit, aus dem dieser Download gebaut wurde.
+GPL-3.0. Der vollständige zugehörige Quelltext liegt im selben Release als `leise-<version>-source.tar.gz` — genau der Commit, aus dem dieser Download gebaut wurde.
 
 ---
 
@@ -124,12 +150,12 @@ GPL-3.0. Der vollständige zugehörige Quelltext liegt im selben Release als `le
 
 - **仅支持 Apple Silicon** —— M1 及以上芯片的 Mac，Intel 机型不支持。
 - **macOS 14.4 或更高。**
-- **约 7 GB 可用磁盘空间** —— App 本体 409 MB，首次运行下载的语音模型 5.9 GB。
+- **约 7 GB 可用磁盘空间** —— App 本体 523 MB，首次运行下载的语音模型 5.9 GB。
 - **十分钟**，大部分时间在等那个下载。
 
 ### 1. 安装
 
-1. 从 https://github.com/ramonfeng/leise/releases/latest 下载 `Leise-2.1.zip`。
+1. 从 https://github.com/ramonfeng/leise/releases/latest 下载 `Leise-<version>.zip`。
 2. 双击解压。
 3. **在访达里把 `Leise.app` 拖进「应用程序」文件夹。** 请务必用拖的 —— 用别的方式拷进去，macOS 会把它放到一个临时的只读位置运行，那样它工作不正常。
 
@@ -168,6 +194,18 @@ Leise 会问一次是否允许检查新版本。**勾选框默认是空的，不
 
 关于你的，什么都不发。音频与转写始终留在本机。App 能发起的网络请求只有两个，都在上面写明、都由你控制：首次运行下载语音模型，以及你明确勾选后的检查新版本 —— 后者只要一个版本号，不附带任何关于你或这台机器的信息。
 
+### 自己构建
+
+重建这个二进制所需的一切都在同一个 Release 的 `leise-<version>-source.tar.gz` 里。解开后运行：
+
+```bash
+engine/scripts/bootstrap-venv.sh
+make install-shell
+```
+
+需要 Apple Silicon、macOS 14.4+、Xcode 16+。不需要 Apple 开发者账号 —— 构建走 ad-hoc 签名。
+完整说明（含如何打出一个 Release）见 `BUILDING.md`。
+
 ### 许可
 
-GPL-3.0。本次构建对应的完整源码就在同一个 Release 里，文件名 `leise-2.1-source.tar.gz`，即这个安装包所构建自的那个 commit。
+GPL-3.0。本次构建对应的完整源码就在同一个 Release 里，文件名 `leise-<version>-source.tar.gz`，即这个安装包所构建自的那个 commit。
