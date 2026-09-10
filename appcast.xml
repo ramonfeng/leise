@@ -2,16 +2,27 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.1.34/Leise-2.1.34.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.1.35/Leise-2.1.35.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.1.34</title>
-      <pubDate>Wed, 09 Sep 2026 08:44:24 +0200</pubDate>
-      <sparkle:version>2.1.34</sparkle:version>
-      <sparkle:shortVersionString>2.1.34</sparkle:shortVersionString>
+      <title>2.1.35</title>
+      <pubDate>Thu, 10 Sep 2026 20:59:53 +0200</pubDate>
+      <sparkle:version>2.1.35</sparkle:version>
+      <sparkle:shortVersionString>2.1.35</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
+**Download:** [Leise-2.1.35.zip](https://github.com/ramonfeng/leise/releases/download/v2.1.35/Leise-2.1.35.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder with this one. (macOS will ask once about "Open Anyway" — same walkthrough as the first install: [README](https://github.com/ramonfeng/leise#readme).)
+
+## What changed in 2.1.35
+
+- **The introduction step can no longer get silently stuck.** If your first dictation fails — for example because another app is holding the microphone — the card now tells you why, in your interface language, and how to retry, instead of sitting there forever. Empty or silent recordings are now reported as a clear "didn't hear anything — check whether another app holds the microphone" message, not as an internal engine error. (Found by a tester within hours of installing — thank you.)
+- **Recordings are kept for 7 days by default — and the app now says so.** 2.1.34 kept every recording (up to 2 GB) without telling anyone. Settings → Audio now has a "Recordings" section: keep the last N days (default 7) or turn keeping off entirely, with the current count and disk usage shown. Keeping recordings exists so a bad transcript can be re-run from its audio — that re-run action ships in the next update. On first launch after upgrading, Leise asks once what to do with the recordings 2.1.34 already kept. Recordings never leave your Mac.
+- **Doubled sentences fixed.** Two independent causes of a sentence appearing twice in your text field are gone, and a sentence the polisher leaves unchanged is now kept as-is instead of being retyped. Long dictations into self-resizing web input fields (certain chat apps) get their polish applied instead of silently skipped.
+- **A guard against two copies of Leise.** If you start Leise from Downloads instead of the Applications folder, or an older copy still exists elsewhere on your Mac, it tells you where and offers a one-click fix. It never deletes anything on its own — moving the old copy to the Trash is your click.
+- **Smaller fixes:** the learn-word banner now appears next to the field you just corrected; dates and numbers written as words no longer get stuck half-converted ("7 月一日" → "7月1日"-style failures); and several under-the-hood quality gates so a release that got worse at recognition cannot be packed.
+
+## The essentials (unchanged from 2.1.34)
 
 **Apple Silicon only** (M1 or newer) · **macOS 14.4+** · about **7 GB free disk** (523 MB app + 5.9 GB speech models downloaded on first run).
 
@@ -21,26 +32,13 @@ A 100 % local dictation app for macOS. Your audio and your transcripts never lea
 
 **What it sends over the network.** Nothing about you. Exactly two requests, both under your control: downloading the speech models on first run, and — only if you tick the box, which ships unticked — asking for a version number.
 
-### If you are one of the first people trying this
-
-Three things tell you it is working. If any of them is not true, please say so.
-
-1. Say a sentence. The text should land where your cursor is.
-2. Open **Settings → Dictionary**, add a word, quit Leise and open it again. The word should still be there.
-3. On first run a progress bar should appear for the model download, and reopening the app afterwards should not download them again.
-
 Anything wrong: **Settings → General → Diagnostics → Export Diagnostics** writes a file to your Downloads folder. Send it over.
-
-### Files
-
-- `Leise-2.1.34.zip` — the app.
-- `leise-2.1.34-source.tar.gz` — the complete corresponding source for this exact build (GPL-3.0). `BUILDING.md` inside it says how to rebuild.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.1.34/Leise-2.1.34.zip"
-                 sparkle:version="2.1.34"
-                 sparkle:shortVersionString="2.1.34"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.1.35/Leise-2.1.35.zip"
+                 sparkle:version="2.1.35"
+                 sparkle:shortVersionString="2.1.35"
                  type="application/octet-stream"
-                 sparkle:edSignature="X1OiwDOGJUmnwp9el+etP+uQ6gtj5ypXRKwvQfaUplXd0FLC0ncop6Qc8uKPPnan8UT9NchTQhPmoCRN3nfHDA==" length="183199410" />
+                 sparkle:edSignature="7nzLRpLFTmlnfQLUDS1OoV14XLxEwmY0kdIGgBL5dYzMPsR6p/NzHct7vZyzZ85ItCuJbL2QZJ2FKuRsk87bBQ==" length="183393876" />
     </item>
   </channel>
 </rss>
