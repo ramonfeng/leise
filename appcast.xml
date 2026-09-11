@@ -2,23 +2,27 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.1.36/Leise-2.1.36.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.2.0/Leise-2.2.0.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.1.36</title>
-      <pubDate>Thu, 10 Sep 2026 23:31:26 +0200</pubDate>
-      <sparkle:version>2.1.36</sparkle:version>
-      <sparkle:shortVersionString>2.1.36</sparkle:shortVersionString>
+      <title>2.2.0</title>
+      <pubDate>Fri, 11 Sep 2026 16:15:01 +0200</pubDate>
+      <sparkle:version>2.2.0</sparkle:version>
+      <sparkle:shortVersionString>2.2.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.1.36.zip](https://github.com/ramonfeng/leise/releases/download/v2.1.36/Leise-2.1.36.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.2.0.zip](https://github.com/ramonfeng/leise/releases/download/v2.2.0/Leise-2.2.0.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.1.36
+## What changed in 2.2.0
 
-- **The first-launch window that listed all your apps is gone.** 2.1.35 greeted several of you with an inventory of every application on your Mac — that was a bug in the new install guard, and it's our fix to make, not your concern to read. Removed. What remains is quieter and only appears when it can actually help: if you start Leise from your Downloads folder, it now offers to complete the installation for you — moving itself into Applications and, if an older copy is in the way, moving that one to the Trash (recoverable) as part of the same click. Nothing is ever deleted on its own, and a properly installed Leise stays completely silent.
-- **The recordings dialog now just asks.** Same three choices with the same numbers (keep the last 7 days / keep everything / delete everything), without the long preamble. The full explanation of how Leise handles recordings stays where it belongs: Settings → Audio.
-- **Updates, on your terms.** Settings → General now has an "Check for updates automatically" toggle — off by default; when off, Leise never contacts the update server. There is also a "Check for Updates…" item in the Leise menu, which asks once whether you'd like automatic checks before performing its first check. Update checks fetch a version number from GitHub and never send information about your machine.
+- **File names like `Claude.md` survive dictation.** The streaming pipeline was cutting dictated dots at sentence boundaries, so a phrase like „Claude Punkt md" reached the polish stage in pieces and came out as `cloud。 md` / `Claude 的。 md` / the word `DOT` — several shapes of the same failure. The delivery layer now rejoins exactly those orphans (guided by how the dot was actually spoken) and leaves true sentence endings alone.
+- **The Dictionary → Replacements tab no longer crashes.** Two replacement rules that had been stored without an internal identifier crashed that tab on scroll; the stored data has been repaired and the app made structurally immune to that failure mode.
+- **Leise is called Leise.** The menu bar and some system dialogs still introduced the app by its internal build name; every user-visible name is now simply Leise.
+- **The setup guide respects what you have already answered.** Replaying it no longer re-asks questions you have settled, finishing it no longer brings it back after a restart, and the guided recording test now describes *your* hotkey gesture — if your shortcut is press-once-start, press-again-stop, that is what it says.
+- **Update checks (introduced in 2.1.36) are hardened.** The consent question can no longer re-appear after you have answered it, and enabling or disabling the toggle gives immediate, visible confirmation.
+
+If you are coming from 2.1.34 or earlier, 2.2.0 also contains everything from the intermediate 2.1.35/2.1.36 releases: the first-launch window that listed all your apps is gone (the installation completes itself instead), the recordings dialog simply asks, and update checks are available on your terms.
 
 ## The essentials (unchanged)
 
@@ -28,15 +32,15 @@ A 100 % local dictation app for macOS. Your audio and your transcripts never lea
 
 **macOS will refuse to open it once.** Leise is signed but not notarised. ⛔ **In both dialogs the blue default button is "Move to Trash"** — pressing Return deletes the app you just downloaded. Click **Done**, then go to **System Settings → Privacy & Security**, find the line about Leise, and click **Open Anyway**. Full walkthrough in English, Deutsch and 简体中文: [README](https://github.com/ramonfeng/leise#readme).
 
-**What it sends over the network.** Nothing about you. Exactly three requests, all under your control: downloading the speech models on first run, and — only if you tick the box, which ships unticked — asking for a version number; plus the same version check when you choose "Check for Updates…" yourself.
+**What it sends over the network.** Nothing about you. The speech models on first run, and — only if you enable update checks, which ships off — a version-number request to the update feed. Both under your control.
 
 Anything wrong: **Settings → General → Diagnostics → Export Diagnostics** writes a file to your Downloads folder. Send it over.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.1.36/Leise-2.1.36.zip"
-                 sparkle:version="2.1.36"
-                 sparkle:shortVersionString="2.1.36"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.2.0/Leise-2.2.0.zip"
+                 sparkle:version="2.2.0"
+                 sparkle:shortVersionString="2.2.0"
                  type="application/octet-stream"
-                 sparkle:edSignature="ofnnJA+gdpyl2+z7qnDijtSaFUlbmwCxSvlZ0UG81KN5gK9cv5a0Uv/3EevqslGQRVgIM0Ytxg0DsRdV9ejxCg==" length="183410530" />
+                 sparkle:edSignature="qUo+9OgQ18QXA6JBie22Q7e1mP3YuKhqH15lNprA8aAmq6SH6RYBSe5k9QWWPXsTOVdIm+ddJO8Aosz7Mdt+Dw==" length="183437175" />
     </item>
   </channel>
 </rss>
