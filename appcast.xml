@@ -2,50 +2,37 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.2.3/Leise-2.2.3.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.2.4/Leise-2.2.4.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.2.3</title>
-      <pubDate>Mon, 14 Sep 2026 01:55:40 +0200</pubDate>
-      <sparkle:version>2.2.3</sparkle:version>
-      <sparkle:shortVersionString>2.2.3</sparkle:shortVersionString>
+      <title>2.2.4</title>
+      <pubDate>Mon, 14 Sep 2026 14:27:19 +0200</pubDate>
+      <sparkle:version>2.2.4</sparkle:version>
+      <sparkle:shortVersionString>2.2.4</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.2.3.zip](https://github.com/ramonfeng/leise/releases/download/v2.2.3/Leise-2.2.3.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.2.4.zip](https://github.com/ramonfeng/leise/releases/download/v2.2.4/Leise-2.2.4.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).) This is also the one manual install for machines whose auto-update never fired — from this version on, the consent question comes to you at launch instead of hiding behind a broken first-run step.
 
-## What changed in 2.2.3
+## What changed in 2.2.4
 
-- **Spoken version numbers survive the pause.** Say 二点、二点三 or 二点.二点三 — take your clause pause wherever you like — and the digits `2.2.3` land as one number instead of `二点、2.3`. The streaming cut no longer splits a number at its spoken dot, in any of the three renderings the recogniser produces (ASCII dot, enumeration comma, or plain run-on).
-- **Check for updates from the main window.** A new row at the bottom of the sidebar — above the gear row, which now says "Settings" — runs one check on click, with a "You're up to date" answer right where you clicked. Never-asked machines get the consent question first; a standing "no" stays a no.
-- **The update prompt speaks your language, and never interrupts.** The prompt and its buttons follow the app's language (English, Deutsch, 简體/繁體中文) instead of the framework's English-only alert — and while a dictation is running, no update window appears at all: it waits until you stop talking, then presents itself.
-- **Translations you never asked for are caught more often.** The polish guard gained a second, smarter alignment pass: a Latin word quietly replaced by a Chinese phrase — `disclaimer` → 免责声明 was the live case — is now detected and your original wording stands, in shapes that previously sailed through (measured against the full stored history: detections up by a third, zero new false alarms on the deliberate number conversions).
-- **Fields that resist edits no longer accumulate duplicates.** When a correction cannot be pasted over its target (some Chromium/Electron-app fields eat the selection), Leise now writes the corrected text through the field's whole-value channel instead of leaving the sentence duplicated — and if even that fails, the failure is loud in the log instead of silent.
-- **Vanished dictations leave a trace.** Recording start, an empty capture, and every history filing now log one line each — the "I spoke a whole paragraph and nothing happened" report is diagnosable in minutes instead of a forensic puzzle.
-- **The update feed is machine-verified.** Version, byte size, download URL and signature are asserted against the uploaded file before the feed can serve it — the failure mode where a stale manifest reached users is closed.
-
-- **The window is the content.** The title bar is gone — "Leise" now lives at the sidebar's top next to the traffic lights, and every page starts right at the top of the window instead of below a name strip. Sidebar rows (and the gear row, and the check-for-updates link) share one geometry: full-width click targets, a pointing-hand cursor on hover, and identical highlight fills — wherever the hand shows, a click works.
-- **"Time saved" leads the stats.** The first card on Home is now the hours typing spared you — and the math learned languages: Chinese text is costed at 30 characters a minute and English/German at 40 words a minute (researched baselines), so a Chinese-heavy workload finally shows the savings it actually earns.
+- **The Home cards finally count what you feel.** Typing time saved leads with the same script-aware baselines (30 字/分 for Chinese, 40 words/min for English and German); "Words never left this Mac" now counts like you talk — every CJK character, every Latin word; "Moments of your voice" counts the dictations themselves instead of an hour-sum nobody can feel; and a new Energy card estimates the watt-hours a cloud speech pipeline would have burned in your place (the CO₂ math lives in the tooltip).
+- **Auto-update becomes reachable on machines that never saw the question.** Upgrades whose onboarding finished before the consent question existed now get asked once at launch; machines stuck on the recording test get the consent toggle right on the failure card. Both paths write the same answer, so the choice can't drift.
+- **Dictionary backups prune themselves.** Automatic dictionary backups now keep the 30 newest (about three days at a heavy day's pace, ~3.5 MB) instead of piling up forever — hand-made and hand-renamed backups are never touched, and nothing is deleted until the new backup has been verified readable.
+- **Your history can no longer be trampled by anything else on this machine.** A second app or tool opening Leise's database could silently restart its row counter and overwrite the oldest dictations; the store paths are now guarded everywhere, and if row growth ever stops advancing while saves succeed, the log says so loudly, the moment it starts.
+- **Every chunk leaves a trace.** Each delivered chunk now logs its landing, a polish result dropped mid-flight says so, and a polish that balloons a sentence several-fold gets a named alarm — the "half a sentence appeared twice / a paragraph vanished" reports are now answerable from the log instead of by oath.
 
 ## The essentials (unchanged)
 
 **Apple Silicon only** (M1 or newer) · **macOS 14.4+** · about **7 GB free disk** (523 MB app + 5.9 GB speech models downloaded on first run).
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
-
-**macOS will refuse to open it once.** Leise is signed but not notarised. ⛔ **In both dialogs the blue default button is "Move to Trash"** — pressing Return deletes the app you just downloaded. Click **Done**, then go to **System Settings → Privacy & Security**, find the line about Leise, and click **Open Anyway**. Full walkthrough in English, Deutsch and 简体中文: [README](https://github.com/ramonfeng/leise#readme).
-
-**What it sends over the network.** Nothing about you. The speech models on first run, and — only if you enable update checks, which ships off — a version-number request to the update feed. Both under your control.
-
-Coming from 2.2.2: everything above, plus the reliability work — the history writer and the capture layer now log loudly, and the update feed generator verifies itself.
-
-Anything wrong: **Settings → General → Diagnostics → Export Diagnostics** writes a file to your Downloads folder. Send it over.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.2.3/Leise-2.2.3.zip"
-                 sparkle:version="2.2.3"
-                 sparkle:shortVersionString="2.2.3"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.2.4/Leise-2.2.4.zip"
+                 sparkle:version="2.2.4"
+                 sparkle:shortVersionString="2.2.4"
                  type="application/octet-stream"
-                 sparkle:edSignature="gnQB03HUrqfUdoHwC+aWY3AwTd4JnF+UDOKoJWr1aoHeRkmNcfxH+ODnbvb3rzueACiIgCKohqBhKkXw3M2ZDg==" length="162028483" />
+                 sparkle:edSignature="aTKb2faVGsqKbMOFof9vbsXbL9ZraomLXtnuvA4+18jh1+dSeFWNfT3iJ7BsrrNFmBK6CcX0TrJryY4/271BDQ==" length="162057340" />
     </item>
   </channel>
 </rss>
