@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.2.4/Leise-2.2.4.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.2.5/Leise-2.2.5.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.2.4</title>
-      <pubDate>Mon, 14 Sep 2026 14:27:19 +0200</pubDate>
-      <sparkle:version>2.2.4</sparkle:version>
-      <sparkle:shortVersionString>2.2.4</sparkle:shortVersionString>
+      <title>2.2.5</title>
+      <pubDate>Thu, 17 Sep 2026 09:18:19 +0200</pubDate>
+      <sparkle:version>2.2.5</sparkle:version>
+      <sparkle:shortVersionString>2.2.5</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.2.4.zip](https://github.com/ramonfeng/leise/releases/download/v2.2.4/Leise-2.2.4.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).) This is also the one manual install for machines whose auto-update never fired — from this version on, the consent question comes to you at launch instead of hiding behind a broken first-run step.
+**Download:** [Leise-2.2.5.zip](https://github.com/ramonfeng/leise/releases/download/v2.2.5/Leise-2.2.5.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.2.4
+## What changed in 2.2.5
 
-- **The Home cards finally count what you feel.** Typing time saved leads with the same script-aware baselines (30 字/分 for Chinese, 40 words/min for English and German); "Words never left this Mac" now counts like you talk — every CJK character, every Latin word; "Moments of your voice" counts the dictations themselves instead of an hour-sum nobody can feel; and a new Energy card estimates the watt-hours a cloud speech pipeline would have burned in your place (the CO₂ math lives in the tooltip).
-- **Auto-update becomes reachable on machines that never saw the question.** Upgrades whose onboarding finished before the consent question existed now get asked once at launch; machines stuck on the recording test get the consent toggle right on the failure card. Both paths write the same answer, so the choice can't drift.
-- **Dictionary backups prune themselves.** Automatic dictionary backups now keep the 30 newest (about three days at a heavy day's pace, ~3.5 MB) instead of piling up forever — hand-made and hand-renamed backups are never touched, and nothing is deleted until the new backup has been verified readable.
-- **Your history can no longer be trampled by anything else on this machine.** A second app or tool opening Leise's database could silently restart its row counter and overwrite the oldest dictations; the store paths are now guarded everywhere, and if row growth ever stops advancing while saves succeed, the log says so loudly, the moment it starts.
-- **Every chunk leaves a trace.** Each delivered chunk now logs its landing, a polish result dropped mid-flight says so, and a polish that balloons a sentence several-fold gets a named alarm — the "half a sentence appeared twice / a paragraph vanished" reports are now answerable from the log instead of by oath.
+- **German spoken numbers become digits — in every shape they come out of your mouth.** "vier Punkt dreiundneunzig" → 4.93, "zwei Komma" → "2,", version chains → 2.2.5, fused tokens ("zweiPunkt"), English "point", and German numbers spoken inside Chinese sentences (even glued to the characters) all land as Arabic numerals now — mid-sentence, at sentence start, and inside chains like 2.2.6.
+- **German words stop being starved out of recognition.** The recognition-bias budget now orders your dictionary by how often each word actually lands in your dictations, reserves guaranteed room for the built-in German administrative vocabulary and for whatever is on your screen, and counts multi-word entries ("NEORUBY GmbH") correctly — the words you rely on stop being the first ones cut.
+- **The cursor-jump / text-vanish in Claude Code Desktop is fixed at the root.** That app periodically restores an older draft of its input box, wiping freshly dictated sentences; Leise now recognizes the rollback signature and re-delivers the missing text in one coherent paste instead of leaving fragments behind a jumped cursor.
+- **The same word spoken once no longer lands twice in different scripts.** Repeated terms where one rendering came out Latin and the other in Chinese characters (a brand name, a street, an invoice word) are now recognized as the same audio and deduplicated.
+- **The polish-skip notification tells you what actually happened.** When the polish model would have translated your words instead of polishing them, it is skipped — and the notification now says your dictation was delivered as spoken, nothing lost.
 
 ## The essentials (unchanged)
 
@@ -28,11 +28,11 @@
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.2.4/Leise-2.2.4.zip"
-                 sparkle:version="2.2.4"
-                 sparkle:shortVersionString="2.2.4"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.2.5/Leise-2.2.5.zip"
+                 sparkle:version="2.2.5"
+                 sparkle:shortVersionString="2.2.5"
                  type="application/octet-stream"
-                 sparkle:edSignature="aTKb2faVGsqKbMOFof9vbsXbL9ZraomLXtnuvA4+18jh1+dSeFWNfT3iJ7BsrrNFmBK6CcX0TrJryY4/271BDQ==" length="162057340" />
+                 sparkle:edSignature="jsUgq/xe7ZSHyxofm3r6K4nm3Y7YCfLfp2Wp+DtWWKx2oxvGmuJEr35cUIrDtOgEIhjL3v+go65wrYmRA97nAA==" length="162146838" />
     </item>
   </channel>
 </rss>
