@@ -2,37 +2,38 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.2.5/Leise-2.2.5.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.0/Leise-2.3.0.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.2.5</title>
-      <pubDate>Thu, 17 Sep 2026 09:18:19 +0200</pubDate>
-      <sparkle:version>2.2.5</sparkle:version>
-      <sparkle:shortVersionString>2.2.5</sparkle:shortVersionString>
+      <title>2.3.0</title>
+      <pubDate>Sat, 19 Sep 2026 19:11:41 +0200</pubDate>
+      <sparkle:version>2.3.0</sparkle:version>
+      <sparkle:shortVersionString>2.3.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.2.5.zip](https://github.com/ramonfeng/leise/releases/download/v2.2.5/Leise-2.2.5.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.3.0.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.0/Leise-2.3.0.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.2.5
+## What changed in 2.3.0
 
-- **German spoken numbers become digits — in every shape they come out of your mouth.** "vier Punkt dreiundneunzig" → 4.93, "zwei Komma" → "2,", version chains → 2.2.5, fused tokens ("zweiPunkt"), English "point", and German numbers spoken inside Chinese sentences (even glued to the characters) all land as Arabic numerals now — mid-sentence, at sentence start, and inside chains like 2.2.6.
-- **German words stop being starved out of recognition.** The recognition-bias budget now orders your dictionary by how often each word actually lands in your dictations, reserves guaranteed room for the built-in German administrative vocabulary and for whatever is on your screen, and counts multi-word entries ("NEORUBY GmbH") correctly — the words you rely on stop being the first ones cut.
-- **The cursor-jump / text-vanish in Claude Code Desktop is fixed at the root.** That app periodically restores an older draft of its input box, wiping freshly dictated sentences; Leise now recognizes the rollback signature and re-delivers the missing text in one coherent paste instead of leaving fragments behind a jumped cursor.
-- **The same word spoken once no longer lands twice in different scripts.** Repeated terms where one rendering came out Latin and the other in Chinese characters (a brand name, a street, an invoice word) are now recognized as the same audio and deduplicated.
-- **The polish-skip notification tells you what actually happened.** When the polish model would have translated your words instead of polishing them, it is skipped — and the notification now says your dictation was delivered as spoken, nothing lost.
+- **Leise Engine now polishes your words too.** Transcription and polishing both run under one name, entirely on your Mac. For polishing, Leise Engine uses your Mac's built-in intelligence when it can and its own bundled model otherwise — the switch is automatic, there is nothing to configure, and nothing ever leaves your Mac. Speech recognition is unchanged.
+- **First run is 2.1 GB lighter.** When your Mac's built-in intelligence handles polishing, Leise no longer downloads the additional polish model up front. If it is ever needed later — say the built-in intelligence becomes unavailable — Leise tells you in Settings and offers the download there, with a one-click button.
+- **The last sentences of a long dictation no longer disappear.** A sentence containing words you had already used could be mistaken for a duplicate re-delivery and dropped; the duplicate check now measures what is genuinely new, so repeated words no longer cost you the sentence around them.
+- **"Highlight but nothing happens" is fixed.** In some apps (Claude, Chrome-based editors) a polish could highlight the text but never deliver: Leise now waits out the moment where the app reports the selection before it is actually in place, instead of giving up on it.
+- **Dates come out in one script.** 「十月七日」 used to arrive as 「10月七日」 — month converted, day left in characters. Dates now convert as a whole (「10月7日」), whichever mixture the recognizer produced.
+- **No more 「，？」** — a stray comma in front of a question mark, occasionally added during polishing, is removed before anything reaches your cursor.
 
 ## The essentials (unchanged)
 
-**Apple Silicon only** (M1 or newer) · **macOS 14.4+** · about **7 GB free disk** (523 MB app + 5.9 GB speech models downloaded on first run).
+**Apple Silicon only** (M1 or newer) · **macOS 14.4+** (on-device polishing additionally needs a newer macOS with Apple Intelligence; without it Leise Engine uses its bundled model) · about **5–7 GB free disk** (app + speech models; 2.1 GB less when your Mac's built-in intelligence does the polishing).
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.2.5/Leise-2.2.5.zip"
-                 sparkle:version="2.2.5"
-                 sparkle:shortVersionString="2.2.5"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.0/Leise-2.3.0.zip"
+                 sparkle:version="2.3.0"
+                 sparkle:shortVersionString="2.3.0"
                  type="application/octet-stream"
-                 sparkle:edSignature="jsUgq/xe7ZSHyxofm3r6K4nm3Y7YCfLfp2Wp+DtWWKx2oxvGmuJEr35cUIrDtOgEIhjL3v+go65wrYmRA97nAA==" length="162146838" />
+                 sparkle:edSignature="omAydtDTnXsdx0NTFQJnCU+EacH8u8eK6J+tSiQ6IU9IsNt0nkoxBfgq5DsYL92koUUI4I2wO9iktamYjolYBA==" length="162288148" />
     </item>
   </channel>
 </rss>
