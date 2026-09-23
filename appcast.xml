@@ -2,26 +2,31 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.0/Leise-2.3.0.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.1/Leise-2.3.1.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.3.0</title>
-      <pubDate>Sat, 19 Sep 2026 19:11:41 +0200</pubDate>
-      <sparkle:version>2.3.0</sparkle:version>
-      <sparkle:shortVersionString>2.3.0</sparkle:shortVersionString>
+      <title>2.3.1</title>
+      <pubDate>Wed, 23 Sep 2026 13:02:48 +0200</pubDate>
+      <sparkle:version>2.3.1</sparkle:version>
+      <sparkle:shortVersionString>2.3.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.3.0.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.0/Leise-2.3.0.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.3.1.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.1/Leise-2.3.1.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.3.0
+## What changed in 2.3.1
 
-- **Leise Engine now polishes your words too.** Transcription and polishing both run under one name, entirely on your Mac. For polishing, Leise Engine uses your Mac's built-in intelligence when it can and its own bundled model otherwise — the switch is automatic, there is nothing to configure, and nothing ever leaves your Mac. Speech recognition is unchanged.
-- **First run is 2.1 GB lighter.** When your Mac's built-in intelligence handles polishing, Leise no longer downloads the additional polish model up front. If it is ever needed later — say the built-in intelligence becomes unavailable — Leise tells you in Settings and offers the download there, with a one-click button.
-- **The last sentences of a long dictation no longer disappear.** A sentence containing words you had already used could be mistaken for a duplicate re-delivery and dropped; the duplicate check now measures what is genuinely new, so repeated words no longer cost you the sentence around them.
-- **"Highlight but nothing happens" is fixed.** In some apps (Claude, Chrome-based editors) a polish could highlight the text but never deliver: Leise now waits out the moment where the app reports the selection before it is actually in place, instead of giving up on it.
-- **Dates come out in one script.** 「十月七日」 used to arrive as 「10月七日」 — month converted, day left in characters. Dates now convert as a whole (「10月7日」), whichever mixture the recognizer produced.
-- **No more 「，？」** — a stray comma in front of a question mark, occasionally added during polishing, is removed before anything reaches your cursor.
+- **The interface now speaks 11 languages.** Settings → General → Language adds Italiano, 한국어, Español, Português, Français, 日本語 and Русский alongside English, Deutsch and the two Chinese scripts. The whole interface is translated — about 1,500 strings per language — and your dictation output is unaffected (in Chinese you still choose Simplified or Traditional exactly as before).
+- **Long stalls after a break now recover on their own.** When the Mac had swapped heavily while Leise sat idle, the first dictation could crawl for minutes with nothing appearing. Leise now recognizes the stall itself, restarts its engine, and redoes the work — without you restarting the app. (It will show a little less progress for 45–60 seconds while it does; that is the recovery working.)
+- **The engine no longer fights your Mac for memory.** When system memory pressure is high, Leise's models step aside sooner instead of holding several gigabytes resident, and it no longer pre-loads a polish model into the middle of a memory crunch.
+- **No more 「。，」** — a stray comma added *after* a sentence-ending mark during polishing is now removed, in addition to the mirror case fixed in 2.3.0.
+- **No more 「，吗？」** — a comma slipped in *before* a sentence-final particle (吗 / 呢 / 吧 / 呀 …) during polishing is now removed, and if polishing rewrites the particle you actually spoke, your own particle is put back.
+- **No more invented endings.** If a sentence already ended in 「？」 and polishing tacked something like 「嗯？」 onto it, that pass is now skipped and your own sentence delivered. Stutter repeats like 「draft, draft」 are now folded deterministically, and the polish prompt names repetition cleanup as a hard requirement with worked examples.
+- **A wedged dictation now finishes itself.** If the key-release ever fails to land, a recording longer than five minutes is automatically finalised and delivered instead of dying silently in memory; a dead capture route now says so instead of showing a progress bar over nothing. Opener translations the recogniser sometimes welds on (「For 对于…」) are trimmed.
+- **Dictation stays in the language you spoke.** When the recogniser translated a Chinese ending into English on its own, Leise already re-decoded the tail against the audio; that verdict now gets a second, context-free attempt, and each attempt is logged — so a translation slips through only when two independent decodes agree it was real speech, not when one look failed.
+- **A spoken version number survives polishing.** Saying 「二点三点一」 can no longer arrive as `2.3.11` — dotted numbers are checked against what was actually dictated.
+- **Update installs complete on their own.** The update dialog used to anchor partly off-screen, which could leave the install waiting on an invisible button; it now always lands on screen, and the updater tells you when quitting will finish the install.
+- **The engine process is named "Leise Engine"** in Activity Monitor instead of "Python" (for builds installed from the packaged app).
 
 ## The essentials (unchanged)
 
@@ -29,11 +34,11 @@
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.0/Leise-2.3.0.zip"
-                 sparkle:version="2.3.0"
-                 sparkle:shortVersionString="2.3.0"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.1/Leise-2.3.1.zip"
+                 sparkle:version="2.3.1"
+                 sparkle:shortVersionString="2.3.1"
                  type="application/octet-stream"
-                 sparkle:edSignature="omAydtDTnXsdx0NTFQJnCU+EacH8u8eK6J+tSiQ6IU9IsNt0nkoxBfgq5DsYL92koUUI4I2wO9iktamYjolYBA==" length="162288148" />
+                 sparkle:edSignature="SNdSs9otUVOGvTqoRQkoMVqv5DFSkwqi80ScoL2M0OXOwkOVh0xA9WVJzfFKfvJFy2qJwA6WxnJ5OVSqTsovAA==" length="162755280" />
     </item>
   </channel>
 </rss>
