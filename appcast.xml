@@ -2,31 +2,26 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.1/Leise-2.3.1.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.2/Leise-2.3.2.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.3.1</title>
-      <pubDate>Wed, 23 Sep 2026 13:02:48 +0200</pubDate>
-      <sparkle:version>2.3.1</sparkle:version>
-      <sparkle:shortVersionString>2.3.1</sparkle:shortVersionString>
+      <title>2.3.2</title>
+      <pubDate>Thu, 24 Sep 2026 23:07:48 +0200</pubDate>
+      <sparkle:version>2.3.2</sparkle:version>
+      <sparkle:shortVersionString>2.3.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.3.1.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.1/Leise-2.3.1.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.3.2.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.2/Leise-2.3.2.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.3.1
+## What changed in 2.3.2
 
-- **The interface now speaks 11 languages.** Settings → General → Language adds Italiano, 한국어, Español, Português, Français, 日本語 and Русский alongside English, Deutsch and the two Chinese scripts. The whole interface is translated — about 1,500 strings per language — and your dictation output is unaffected (in Chinese you still choose Simplified or Traditional exactly as before).
-- **Long stalls after a break now recover on their own.** When the Mac had swapped heavily while Leise sat idle, the first dictation could crawl for minutes with nothing appearing. Leise now recognizes the stall itself, restarts its engine, and redoes the work — without you restarting the app. (It will show a little less progress for 45–60 seconds while it does; that is the recovery working.)
-- **The engine no longer fights your Mac for memory.** When system memory pressure is high, Leise's models step aside sooner instead of holding several gigabytes resident, and it no longer pre-loads a polish model into the middle of a memory crunch.
-- **No more 「。，」** — a stray comma added *after* a sentence-ending mark during polishing is now removed, in addition to the mirror case fixed in 2.3.0.
-- **No more 「，吗？」** — a comma slipped in *before* a sentence-final particle (吗 / 呢 / 吧 / 呀 …) during polishing is now removed, and if polishing rewrites the particle you actually spoke, your own particle is put back.
-- **No more invented endings.** If a sentence already ended in 「？」 and polishing tacked something like 「嗯？」 onto it, that pass is now skipped and your own sentence delivered. Stutter repeats like 「draft, draft」 are now folded deterministically, and the polish prompt names repetition cleanup as a hard requirement with worked examples.
-- **A wedged dictation now finishes itself.** If the key-release ever fails to land, a recording longer than five minutes is automatically finalised and delivered instead of dying silently in memory; a dead capture route now says so instead of showing a progress bar over nothing. Opener translations the recogniser sometimes welds on (「For 对于…」) are trimmed.
-- **Dictation stays in the language you spoke.** When the recogniser translated a Chinese ending into English on its own, Leise already re-decoded the tail against the audio; that verdict now gets a second, context-free attempt, and each attempt is logged — so a translation slips through only when two independent decodes agree it was real speech, not when one look failed.
-- **A spoken version number survives polishing.** Saying 「二点三点一」 can no longer arrive as `2.3.11` — dotted numbers are checked against what was actually dictated.
-- **Update installs complete on their own.** The update dialog used to anchor partly off-screen, which could leave the install waiting on an invisible button; it now always lands on screen, and the updater tells you when quitting will finish the install.
-- **The engine process is named "Leise Engine"** in Activity Monitor instead of "Python" (for builds installed from the packaged app).
+- **Pressing Escape twice during a recording no longer crashes the app.** A teardown race in the audio capture could take the whole process down the moment you discarded a recording to re-record it; the capture now stops the engine fully before removing anything, so the order that lost the race is gone. This is the fix for the crash reported 41 minutes after the 2.3.2 install.
+- **A dictation started after an idle stretch no longer disappears or freezes.** The press-time bookkeeping could stand frozen for tens of seconds waiting on a sleeping app in front, losing the whole recording silently. That wait is gone, and the engine now keeps its speech models warm instead of unloading them — the first dictation after an idle hour starts like the second one.
+- **Polishing can no longer delete your real words.** A polish pass that drops an actual word from what you said (「computer use」 arriving as 「computer」) is now rejected and your dictation is delivered exactly as spoken. Cleanup is bounded to fillers, stutters and adjacent repeats — the prompt says so and a guard enforces it.
+- **Mixed Chinese–English dictations keep their language more reliably.** When the recogniser translated a Chinese ending into English, Leise re-decodes the tail against the audio; the verdict now judges only the part the two decodes disagree on, so an English quote you genuinely spoke no longer tricks it into refusing the correct fix.
+- **More German administrative vocabulary out of the box.** The built-in bias list grows to fifteen terms, adding the tax-filing family — Fristverlängerung, Voranmeldung, Umsatzsteuer, Steuererklärung, Betriebsprüfung — the kind of words that were breaking apart in dictations about finance and deadlines.
+- **First-run guidance names the two-copies trap.** If the microphone permission keeps looping, onboarding now walks a clean reinstall — quit, remove every copy, restart, install into Applications — instead of pointing at terminal commands.
 
 ## The essentials (unchanged)
 
@@ -34,11 +29,11 @@
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.1/Leise-2.3.1.zip"
-                 sparkle:version="2.3.1"
-                 sparkle:shortVersionString="2.3.1"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.2/Leise-2.3.2.zip"
+                 sparkle:version="2.3.2"
+                 sparkle:shortVersionString="2.3.2"
                  type="application/octet-stream"
-                 sparkle:edSignature="SNdSs9otUVOGvTqoRQkoMVqv5DFSkwqi80ScoL2M0OXOwkOVh0xA9WVJzfFKfvJFy2qJwA6WxnJ5OVSqTsovAA==" length="162755280" />
+                 sparkle:edSignature="dqTFVVIK9/JdO+jLsfAj2XZ18heQ2VtpUrMGnweVakebx29ErjUaAx/eML5u/t4uWq+qZKdm/Q0LgJSSEnsODw==" length="162780983" />
     </item>
   </channel>
 </rss>
