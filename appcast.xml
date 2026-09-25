@@ -2,26 +2,21 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.2/Leise-2.3.2.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.3/Leise-2.3.3.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.3.2</title>
-      <pubDate>Thu, 24 Sep 2026 23:07:48 +0200</pubDate>
-      <sparkle:version>2.3.2</sparkle:version>
-      <sparkle:shortVersionString>2.3.2</sparkle:shortVersionString>
+      <title>2.3.3</title>
+      <pubDate>Fri, 25 Sep 2026 09:47:18 +0200</pubDate>
+      <sparkle:version>2.3.3</sparkle:version>
+      <sparkle:shortVersionString>2.3.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.3.2.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.2/Leise-2.3.2.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.3.3.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.3/Leise-2.3.3.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.3.2
+## What changed in 2.3.3
 
-- **Pressing Escape twice during a recording no longer crashes the app.** A teardown race in the audio capture could take the whole process down the moment you discarded a recording to re-record it; the capture now stops the engine fully before removing anything, so the order that lost the race is gone. This is the fix for the crash reported 41 minutes after the 2.3.2 install.
-- **A dictation started after an idle stretch no longer disappears or freezes.** The press-time bookkeeping could stand frozen for tens of seconds waiting on a sleeping app in front, losing the whole recording silently. That wait is gone, and the engine now keeps its speech models warm instead of unloading them — the first dictation after an idle hour starts like the second one.
-- **Polishing can no longer delete your real words.** A polish pass that drops an actual word from what you said (「computer use」 arriving as 「computer」) is now rejected and your dictation is delivered exactly as spoken. Cleanup is bounded to fillers, stutters and adjacent repeats — the prompt says so and a guard enforces it.
-- **Mixed Chinese–English dictations keep their language more reliably.** When the recogniser translated a Chinese ending into English, Leise re-decodes the tail against the audio; the verdict now judges only the part the two decodes disagree on, so an English quote you genuinely spoke no longer tricks it into refusing the correct fix.
-- **More German administrative vocabulary out of the box.** The built-in bias list grows to fifteen terms, adding the tax-filing family — Fristverlängerung, Voranmeldung, Umsatzsteuer, Steuererklärung, Betriebsprüfung — the kind of words that were breaking apart in dictations about finance and deadlines.
-- **First-run guidance names the two-copies trap.** If the microphone permission keeps looping, onboarding now walks a clean reinstall — quit, remove every copy, restart, install into Applications — instead of pointing at terminal commands.
+- **Leise asks for the microphone again whenever macOS has no answer on file.** After its first request, Leise used to remember "already asked" and never ask again — even when macOS had recorded no decision, which left no Leise entry in System Settings to switch on and pointed you at a dead end. Reinstalling didn't help, because that memory outlived the app. Leise now reads the microphone state from macOS every time: if nothing is decided yet, dictating (or the button on the Home page, the menu bar or the setup guide) brings up the system's own "Allow microphone" dialog; if access was declined, it opens the right page in System Settings, where Leise is listed; if a device-management or Screen Time policy blocks it, it says so.
 
 ## The essentials (unchanged)
 
@@ -29,11 +24,11 @@
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.2/Leise-2.3.2.zip"
-                 sparkle:version="2.3.2"
-                 sparkle:shortVersionString="2.3.2"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.3/Leise-2.3.3.zip"
+                 sparkle:version="2.3.3"
+                 sparkle:shortVersionString="2.3.3"
                  type="application/octet-stream"
-                 sparkle:edSignature="dqTFVVIK9/JdO+jLsfAj2XZ18heQ2VtpUrMGnweVakebx29ErjUaAx/eML5u/t4uWq+qZKdm/Q0LgJSSEnsODw==" length="162780983" />
+                 sparkle:edSignature="4EB6mb/uEkWOWR+1g04GuD52OUJKqH2cA8SlBaN+aJOO622DrViw2lUkF98+xhrbVHcRTBh29GoQ8Q/sEzENCg==" length="162801819" />
     </item>
   </channel>
 </rss>
