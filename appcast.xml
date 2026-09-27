@@ -2,21 +2,25 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.3/Leise-2.3.3.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.4/Leise-2.3.4.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.3.3</title>
-      <pubDate>Fri, 25 Sep 2026 09:47:18 +0200</pubDate>
-      <sparkle:version>2.3.3</sparkle:version>
-      <sparkle:shortVersionString>2.3.3</sparkle:shortVersionString>
+      <title>2.3.4</title>
+      <pubDate>Sun, 27 Sep 2026 21:23:58 +0200</pubDate>
+      <sparkle:version>2.3.4</sparkle:version>
+      <sparkle:shortVersionString>2.3.4</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.3.3.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.3/Leise-2.3.3.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.3.4.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.4/Leise-2.3.4.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.3.3
+## What changed in 2.3.4
 
-- **Leise asks for the microphone again whenever macOS has no answer on file.** After its first request, Leise used to remember "already asked" and never ask again — even when macOS had recorded no decision, which left no Leise entry in System Settings to switch on and pointed you at a dead end. Reinstalling didn't help, because that memory outlived the app. Leise now reads the microphone state from macOS every time: if nothing is decided yet, dictating (or the button on the Home page, the menu bar or the setup guide) brings up the system's own "Allow microphone" dialog; if access was declined, it opens the right page in System Settings, where Leise is listed; if a device-management or Screen Time policy blocks it, it says so.
+- **Percentages come out the same way in every language.** „百分之六点四" becomes `6.4%`, "five percent" becomes `5%`, and „50 Prozent" becomes `50 %` (German spacing).
+- **Polishing no longer puts spaces between Chinese words.** The space between Chinese and Latin letters or digits (`是 6.4%`, `用 Leise`) stays as before.
+- **Correcting the same word a second time now sticks.** If Leise keeps getting a name wrong after you correct it, the second correction makes that word always part of what recognition listens for, and the banner says so — it no longer repeats "added to dictionary" when nothing changed.
+- **Update checks are on by default.** Leise asks once more if you said no before; the check only downloads the update feed. You can turn it off in Settings at any time.
+- **"Pause media while recording" is gone.** It relied on a component Leise no longer ships. Muting system audio while you dictate works as before (Settings → Audio).
 
 ## The essentials (unchanged)
 
@@ -24,11 +28,11 @@
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.3/Leise-2.3.3.zip"
-                 sparkle:version="2.3.3"
-                 sparkle:shortVersionString="2.3.3"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.4/Leise-2.3.4.zip"
+                 sparkle:version="2.3.4"
+                 sparkle:shortVersionString="2.3.4"
                  type="application/octet-stream"
-                 sparkle:edSignature="4EB6mb/uEkWOWR+1g04GuD52OUJKqH2cA8SlBaN+aJOO622DrViw2lUkF98+xhrbVHcRTBh29GoQ8Q/sEzENCg==" length="162801819" />
+                 sparkle:edSignature="U+hJm0ELB8EAwumRTauqgwdDRG1r6xPiZ6PH4ykYdq9Q1Uwxht9V8NjQtwJEfDRdV1FtrKiYBxETYM8OitTSDg==" length="162724348" />
     </item>
   </channel>
 </rss>
