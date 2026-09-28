@@ -2,25 +2,27 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.4/Leise-2.3.4.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.5/Leise-2.3.5.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.3.4</title>
-      <pubDate>Sun, 27 Sep 2026 21:23:58 +0200</pubDate>
-      <sparkle:version>2.3.4</sparkle:version>
-      <sparkle:shortVersionString>2.3.4</sparkle:shortVersionString>
+      <title>2.3.5</title>
+      <pubDate>Tue, 29 Sep 2026 01:14:34 +0200</pubDate>
+      <sparkle:version>2.3.5</sparkle:version>
+      <sparkle:shortVersionString>2.3.5</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.3.4.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.4/Leise-2.3.4.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.3.5.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.5/Leise-2.3.5.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.3.4
+## What changed in 2.3.5
 
-- **Percentages come out the same way in every language.** „百分之六点四" becomes `6.4%`, "five percent" becomes `5%`, and „50 Prozent" becomes `50 %` (German spacing).
-- **Polishing no longer puts spaces between Chinese words.** The space between Chinese and Latin letters or digits (`是 6.4%`, `用 Leise`) stays as before.
-- **Correcting the same word a second time now sticks.** If Leise keeps getting a name wrong after you correct it, the second correction makes that word always part of what recognition listens for, and the banner says so — it no longer repeats "added to dictionary" when nothing changed.
-- **Update checks are on by default.** Leise asks once more if you said no before; the check only downloads the update feed. You can turn it off in Settings at any time.
-- **"Pause media while recording" is gone.** It relied on a component Leise no longer ships. Muting system audio while you dictate works as before (Settings → Audio).
+- **Updates install themselves now.** When the download finishes, the install prompt appears on its own — the progress bar no longer stalls at 100% waiting for a restart. (One note for this update only: 2.3.5 arrives through the *old* update flow, so if the bar sits at 100%, click "Abbrechen"/"Cancel" and the "Ready to Install" window appears. Every update after this one is smooth.)
+- **Words no longer stick together in English and German.** "didn'tmake" becomes "didn't make", and a space follows `. ! ? ;` before the next word — both right after dictation and after polishing.
+- **Leise warns when something else types into your field.** If text from another window or session lands in the middle of your dictation, a warning appears instead of the text silently mixing in. Your dictated text is never re-typed or overwritten.
+- **A recording pill of Leise's own.** The capsule at the bottom is redesigned — wider, nine bars, its own stop/check icons, Liquid Glass on macOS 26 — and the waveform motion is tuned against measured dynamics.
+- **German says Du everywhere.** The last 27 Sie strings joined the rest.
+- **Feedback is one click away.** Settings → Feedback drafts a mail to feedback@leiseapp.com carrying only the app version, the macOS version and the interface language.
+- **Chinese dictation with English passages decodes more calmly.** English-language windows in the zh/de route fall back to automatic detection instead of being forced.
 
 ## The essentials (unchanged)
 
@@ -28,11 +30,11 @@
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.4/Leise-2.3.4.zip"
-                 sparkle:version="2.3.4"
-                 sparkle:shortVersionString="2.3.4"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.5/Leise-2.3.5.zip"
+                 sparkle:version="2.3.5"
+                 sparkle:shortVersionString="2.3.5"
                  type="application/octet-stream"
-                 sparkle:edSignature="U+hJm0ELB8EAwumRTauqgwdDRG1r6xPiZ6PH4ykYdq9Q1Uwxht9V8NjQtwJEfDRdV1FtrKiYBxETYM8OitTSDg==" length="162724348" />
+                 sparkle:edSignature="5MB4YGdzTps9ahXafdIqP7gjoJulufByknUuhVTjnac7+IUcZl3W+YR3C0sW2usEdnPDG4cJx2yt50n8XIqnAQ==" length="162805553" />
     </item>
   </channel>
 </rss>
