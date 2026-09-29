@@ -2,27 +2,21 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Leise</title>
-    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.5/Leise-2.3.5.zip</link>
+    <link>https://github.com/ramonfeng/leise/releases/download/v2.3.6/Leise-2.3.6.zip</link>
     <description>Leise updates</description>
     <language>de</language>
     <item>
-      <title>2.3.5</title>
-      <pubDate>Tue, 29 Sep 2026 01:14:34 +0200</pubDate>
-      <sparkle:version>2.3.5</sparkle:version>
-      <sparkle:shortVersionString>2.3.5</sparkle:shortVersionString>
+      <title>2.3.6</title>
+      <pubDate>Tue, 29 Sep 2026 23:36:40 +0200</pubDate>
+      <sparkle:version>2.3.6</sparkle:version>
+      <sparkle:shortVersionString>2.3.6</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
-**Download:** [Leise-2.3.5.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.5/Leise-2.3.5.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
+**Download:** [Leise-2.3.6.zip](https://github.com/ramonfeng/leise/releases/download/v2.3.6/Leise-2.3.6.zip) — quit Leise, then replace the old `Leise.app` in your Applications folder. (First launch after replacing: System Settings → Privacy & Security → "Open Anyway", same as before — [README](https://github.com/ramonfeng/leise#readme).)
 
-## What changed in 2.3.5
+## What changed in 2.3.6
 
-- **Updates install themselves now.** When the download finishes, the install prompt appears on its own — the progress bar no longer stalls at 100% waiting for a restart. (One note for this update only: 2.3.5 arrives through the *old* update flow, so if the bar sits at 100%, click "Abbrechen"/"Cancel" and the "Ready to Install" window appears. Every update after this one is smooth.)
-- **Words no longer stick together in English and German.** "didn'tmake" becomes "didn't make", and a space follows `. ! ? ;` before the next word — both right after dictation and after polishing.
-- **Leise warns when something else types into your field.** If text from another window or session lands in the middle of your dictation, a warning appears instead of the text silently mixing in. Your dictated text is never re-typed or overwritten.
-- **A recording pill of Leise's own.** The capsule at the bottom is redesigned — wider, nine bars, its own stop/check icons, Liquid Glass on macOS 26 — and the waveform motion is tuned against measured dynamics.
-- **German says Du everywhere.** The last 27 Sie strings joined the rest.
-- **Feedback is one click away.** Settings → Feedback drafts a mail to feedback@leiseapp.com carrying only the app version, the macOS version and the interface language.
-- **Chinese dictation with English passages decodes more calmly.** English-language windows in the zh/de route fall back to automatic detection instead of being forced.
+- **Leise now checks for updates at leiseapp.com**, its own address, instead of GitHub. As before, it asks about once a day for the latest version number only — nothing about you or your Mac is sent — and you can turn this off at any time in Settings. Nothing else changes in this release.
 
 ## The essentials (unchanged)
 
@@ -30,11 +24,11 @@
 
 A 100 % local dictation app for macOS. Your audio and your transcripts never leave your Mac; it works with the network off.
       ]]></description>
-      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.5/Leise-2.3.5.zip"
-                 sparkle:version="2.3.5"
-                 sparkle:shortVersionString="2.3.5"
+      <enclosure url="https://github.com/ramonfeng/leise/releases/download/v2.3.6/Leise-2.3.6.zip"
+                 sparkle:version="2.3.6"
+                 sparkle:shortVersionString="2.3.6"
                  type="application/octet-stream"
-                 sparkle:edSignature="5MB4YGdzTps9ahXafdIqP7gjoJulufByknUuhVTjnac7+IUcZl3W+YR3C0sW2usEdnPDG4cJx2yt50n8XIqnAQ==" length="162805553" />
+                 sparkle:edSignature="+r93enovY1XL5+xDAWcuPoe+SYQznjU+PUqrojjv3gbL9rnMWN3XifeXfHam29Zh6bPV2oQNwUDwhpPI7clIAg==" length="162805361" />
     </item>
   </channel>
 </rss>
